@@ -15,11 +15,40 @@ import hatifnatts.characters.Pole;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Hemul implements HemulActions {
 
     private Location location;
     private HemulStatus hemulStatus = HemulStatus.NOT_SCARED;
     private int energy = 30;
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public HemulStatus getHemulStatus() {
+        return hemulStatus;
+    }
+
+    public void setHemulStatus(HemulStatus hemulStatus) {
+        this.hemulStatus = hemulStatus;
+    }
+
+    public int getEnergy() {
+        return energy;
+    }
+
+    public List<Skirt> getSkirts() {
+        return skirts;
+    }
+
+    public void setSkirts(List<Skirt> skirts) {
+        this.skirts = skirts;
+    }
 
     public void setEnergy(int energy) {
         this.energy = energy;
@@ -87,7 +116,7 @@ public class Hemul implements HemulActions {
 
     @Override
     public void lookAround(Adverbs adverb) {
-
+        new HemulMessages(this).lookAround(adverb);
     }
 
     @Override

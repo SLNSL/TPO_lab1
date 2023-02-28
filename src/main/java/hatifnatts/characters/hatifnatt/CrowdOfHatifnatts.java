@@ -27,7 +27,7 @@ public class CrowdOfHatifnatts implements CrowdOfHatifnattsActions {
         }
         addItem(hatifnatt);
         hatifnattStatus = HatifnattStatus.LINE_AFTER_LINE;
-        System.out.println(this.toString());
+//        System.out.println(this.toString());
     }
     public List<Hatifnatt> crowd = new ArrayList<>();
 

@@ -47,6 +47,11 @@ public class Main{
         crowd.takeAStepTowards(hemul, HatifnattStatus.LINE_AFTER_LINE);
         crowd.hiss(Adverbs.TERRIBLY);
         crowd.swingPaws();
+
+
+
+
+
         hemul.coward();
         hemul.lookAround(pole);
         crowd.surround(hemul);

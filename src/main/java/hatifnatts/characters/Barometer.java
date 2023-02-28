@@ -19,6 +19,26 @@ public class Barometer{
         this.material=material;
     }
 
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Colour getColour() {
+        return colour;
+    }
+
+    public void setColour(Colour colour) {
+        this.colour = colour;
+    }
+
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
+    }
+
     public class ClockHand{
         public void show(boolean rain, boolean wind){
             System.out.println("> Barometer:\n\tshows:\train - "+rain+" | wind - "+ wind);
