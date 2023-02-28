@@ -54,11 +54,13 @@ public class ArcCosTest {
     @ParameterizedTest
     @ValueSource(doubles = {1.0, 1.0 + 0.001, 1.0 - 0.001})
     public void posEdgeCheck(double x) {
-        Assertions.assertEquals(Math.acos(x), ArcCos.run(x), 0.1);    }
+        Assertions.assertEquals(Math.acos(x), ArcCos.run(x), 0.1);
+    }
 
     @ParameterizedTest
     @ValueSource(doubles = {-1.0, -1.0 - 0.001, -1.0 + 0.001})
     public void negEdgeCheck(double x) {
-        Assertions.assertEquals(Math.acos(x), ArcCos.run(x), 0.1);    }
+        Assertions.assertEquals(Math.acos(x), ArcCos.run(x), 0.1);
+    }
 
 }
