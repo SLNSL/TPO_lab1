@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4068d9b6-2ccf-4c06-a460-a8a70243c925" name="Changes" comment="Сделал второй пункт">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="4068d9b6-2ccf-4c06-a460-a8a70243c925" name="Changes" comment="Всё сделал">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ArcCos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ArcCos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hatifnatts/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hatifnatts/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hatifnatt/CrowdOfHatifnatts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hatifnatt/CrowdOfHatifnatts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hatifnatt/Hatifnatt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hatifnatt/Hatifnatt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hemul/Hemul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hemul/Hemul.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,29 +35,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "last_opened_file_path": "C:/Users/vsitk/Documents/ITMO/3course/QA/TPO_lab1",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.37241378",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/vsitk/Documents/ITMO/3course/QA/TPO_lab1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.37241378&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\vsitk\Documents\ITMO\3course\QA\TPO_lab1" />
@@ -78,7 +72,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainTest">
+  <component name="RunManager" selected="JUnit.ArcCosTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hatifnatts.Main" />
       <module name="TPO_lab1" />
@@ -132,8 +126,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.ArcCosTest" />
+        <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.checkNumberOfHatifnattsInCrowd" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MainTest.testIfHemulClimbedUp" />
@@ -150,7 +144,9 @@
       <updated>1677334031809</updated>
       <workItem from="1677334034263" duration="6030000" />
       <workItem from="1677582459465" duration="5358000" />
-      <workItem from="1677604105991" duration="13005000" />
+      <workItem from="1677604105991" duration="13432000" />
+      <workItem from="1677665359225" duration="98000" />
+      <workItem from="1677667556378" duration="334000" />
     </task>
     <task id="LOCAL-00001" summary="FC">
       <created>1677334099560</created>
@@ -201,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677613161910</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Всё сделал">
+      <created>1677665212535</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677665212535</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +227,7 @@
     <MESSAGE value="Сделал модульное тестирование ArcCos" />
     <MESSAGE value="Добавил 3 пункт" />
     <MESSAGE value="Сделал второй пункт" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделал второй пункт" />
+    <MESSAGE value="Всё сделал" />
+    <option name="LAST_COMMIT_MESSAGE" value="Всё сделал" />
   </component>
 </project>
