@@ -16,11 +16,17 @@ public class CrowdOfHatifnatts implements CrowdOfHatifnattsActions {
     public static int getNumberOfHatifnatts(){return numberOfHatifnatts;}
     private HatifnattStatus hatifnattStatus;
 
+    public List<Hatifnatt> crowd = new ArrayList<>();
+
+    public HatifnattStatus getHatifnattStatus() {
+        return hatifnattStatus;
+    }
+
     public CrowdOfHatifnatts (Hatifnatt hatifnatt, int initialAmount)throws ImpossibleNumberException {
-        if (initialAmount<2){
+        if (initialAmount < 2){
             throw new ImpossibleNumberException(initialAmount + " hatifnatts isn't a crowd. It must be at least 2 of them.");
         }
-        for (int i=0; i<(initialAmount-1); i++){
+        for (int i = 0; i < (initialAmount-1); i++){
             Hatifnatt h = new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2);
             h=hatifnatt;
             addItem(h);
@@ -29,13 +35,10 @@ public class CrowdOfHatifnatts implements CrowdOfHatifnattsActions {
         hatifnattStatus = HatifnattStatus.LINE_AFTER_LINE;
 //        System.out.println(this.toString());
     }
-    public List<Hatifnatt> crowd = new ArrayList<>();
 
     public void addItem(Hatifnatt hatifnatt){
         crowd.add(hatifnatt);
     }
-
-
 
 
     @Override

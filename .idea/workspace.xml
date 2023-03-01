@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4068d9b6-2ccf-4c06-a460-a8a70243c925" name="Changes" comment="Сделал второй пункт">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Sorter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/SorterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ArcCosTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ArcCosTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ArcCos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ArcCos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hatifnatts/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hatifnatts/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hatifnatt/CrowdOfHatifnatts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hatifnatt/CrowdOfHatifnatts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hatifnatt/Hatifnatt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hatifnatt/Hatifnatt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hemul/Hemul.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hatifnatts/characters/hemul/Hemul.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +54,10 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
     "last_opened_file_path": "C:/Users/vsitk/Documents/ITMO/3course/QA/TPO_lab1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.37241378",
@@ -57,6 +65,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\vsitk\Documents\ITMO\3course\QA\TPO_lab1" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -67,10 +78,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SorterTest">
+  <component name="RunManager" selected="JUnit.MainTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hatifnatts.Main" />
-      <module name="lab1" />
+      <module name="TPO_lab1" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="hatifnatts.*" />
@@ -81,52 +92,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.checkLocation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="checkLocation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainTest.checkMessageHiderBuffer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="checkMessageHiderBuffer" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MainTest.checkNumberOfSkirts" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lab1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="checkNumberOfSkirts" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SorterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ArcCosTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TPO_lab1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="SorterTest" />
+      <option name="MAIN_CLASS_NAME" value="ArcCosTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TPO_lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.checkNumberOfHatifnattsInCrowd" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TPO_lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="METHOD_NAME" value="checkNumberOfHatifnattsInCrowd" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainTest.testIfHemulClimbedUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="TPO_lab1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainTest" />
+      <option name="METHOD_NAME" value="testIfHemulClimbedUp" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SorterTest" />
-        <item itemvalue="JUnit.MainTest.checkNumberOfSkirts" />
-        <item itemvalue="JUnit.MainTest.checkMessageHiderBuffer" />
+        <item itemvalue="JUnit.MainTest" />
+        <item itemvalue="JUnit.ArcCosTest" />
+        <item itemvalue="JUnit.MainTest.checkNumberOfHatifnattsInCrowd" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MainTest.checkLocation" />
+        <item itemvalue="JUnit.MainTest.testIfHemulClimbedUp" />
       </list>
     </recent_temporary>
   </component>
@@ -140,7 +150,7 @@
       <updated>1677334031809</updated>
       <workItem from="1677334034263" duration="6030000" />
       <workItem from="1677582459465" duration="5358000" />
-      <workItem from="1677604105991" duration="1334000" />
+      <workItem from="1677604105991" duration="13005000" />
     </task>
     <task id="LOCAL-00001" summary="FC">
       <created>1677334099560</created>
@@ -184,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677582890585</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Сделал второй пункт">
+      <created>1677613161909</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1677613161910</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

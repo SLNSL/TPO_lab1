@@ -138,8 +138,14 @@ public class Hatifnatt implements HatifnattActions {
 
 
     public class Face{
+
         private MovableStatus facesStatus;
+
         private Face(){ facesStatus = MovableStatus.MOTIONLESS; }
+
+        public MovableStatus getFacesStatus() {
+            return facesStatus;
+        }
         public void move(MovableStatus facesStatus){
             this.facesStatus = facesStatus;
             //System.out.println("> Хатифнатты:\n\tЛица "+facesStatus);

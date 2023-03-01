@@ -239,7 +239,7 @@ public class Hemul implements HemulActions {
 
 
     public void sitDown() {
-        if (location != Location.ON_TOP_OF_THE_POLE) {
+        if (location == Location.ON_TOP_OF_THE_POLE) {
             //System.out.println("> Хемуль:\n\tсел");
             new HemulMessages(this).sitDown();
         }
