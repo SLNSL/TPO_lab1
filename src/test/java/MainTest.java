@@ -14,6 +14,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class MainTest {
@@ -49,33 +50,33 @@ public class MainTest {
     @Order(3)
     public void checkMessageHiderBuffer() throws ImpossibleNumberException{
         crowd.swarm();
-        Assertions.assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
+        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
 
         crowd.lookAt(hemul);
-        Assertions.assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
+        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
 
         crowd.hiss(Adverbs.TERRIBLY);
-        Assertions.assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
+        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
 
         crowd.takeAStepTowards(hemul, HatifnattStatus.LINE_AFTER_LINE);
-        Assertions.assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
+        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
 
         crowd.hear(false);
-        Assertions.assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
+        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
 
         crowd.swingPaws();
-        Assertions.assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
+        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
     }
 
     @Test
     @Order(4)
     public void checkLocation(){
 
-        Assertions.assertEquals(hemul.getLocation(), Location.GLADE_OF_HATIFNATTS);
+        assertEquals(hemul.getLocation(), Location.GLADE_OF_HATIFNATTS);
 
         hemul.crashInto(pole);
 
-        Assertions.assertEquals(hemul.getLocation(), Location.BY_THE_POLE);
+        assertEquals(hemul.getLocation(), Location.BY_THE_POLE);
     }
 
 
@@ -84,7 +85,7 @@ public class MainTest {
     public void testIfHatifnattsSurrounded(){
         crowd.surround(hemul);
 
-        Assertions.assertEquals(HatifnattStatus.IN_A_CIRCLE, crowd.getHatifnattStatus());
+        assertEquals(HatifnattStatus.IN_A_CIRCLE, crowd.getHatifnattStatus());
     }
 
     @Test
@@ -93,9 +94,9 @@ public class MainTest {
         crowd.flash(Location.BETWEEN_THE_TREES, 0);
 
         for (Hatifnatt hatifnatt : crowd.crowd){
-            Assertions.assertEquals(0, hatifnatt.getLoudness());
-            Assertions.assertEquals(Location.BETWEEN_THE_TREES, hatifnatt.getLocation());
-            Assertions.assertEquals(MovableStatus.MOTIONLESS, hatifnatt.getFace().getFacesStatus());
+            assertEquals(0, hatifnatt.getLoudness());
+            assertEquals(Location.BETWEEN_THE_TREES, hatifnatt.getLocation());
+            assertEquals(MovableStatus.MOTIONLESS, hatifnatt.getFace().getFacesStatus());
         }
     }
 
@@ -105,7 +106,7 @@ public class MainTest {
         hemul.pickUpSkirts();
 
         for (Hemul.Skirt skirt : hemul.getSkirts()){
-            Assertions.assertEquals(SkirtStatus.UP, skirt.getSkirtsStatus());
+            assertEquals(SkirtStatus.UP, skirt.getSkirtsStatus());
         }
     }
 
@@ -115,7 +116,7 @@ public class MainTest {
         hemul.coward();
         hemul.climb(pole);
 
-        Assertions.assertEquals(Location.ON_TOP_OF_THE_POLE, hemul.getLocation());
+        assertEquals(Location.ON_TOP_OF_THE_POLE, hemul.getLocation());
     }
 
 }

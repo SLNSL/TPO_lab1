@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class SorterTest {
     private Sorter sorter;
     private ListAppender<ILoggingEvent> listAppender;
@@ -29,7 +31,7 @@ public class SorterTest {
 
         sorter.bucketSort(test_arr);
 
-        Assertions.assertEquals("Array is empty.", listAppender.list.get(0).getMessage());
+        assertEquals("Array is empty.", listAppender.list.get(0).getMessage());
         Assertions.assertArrayEquals(expected_arr, test_arr, 0);
     }
 
@@ -38,8 +40,8 @@ public class SorterTest {
         double[] test_arr = {-10};
 
         Assertions.assertThrows(IndexOutOfBoundsException.class, () -> sorter.bucketSort(test_arr));
-        Assertions.assertEquals("Created empty list of buckets.", listAppender.list.get(0).getMessage());
-        Assertions.assertEquals("Added 1 buckets.", listAppender.list.get(1).getMessage());
+        assertEquals("Created empty list of buckets.", listAppender.list.get(0).getMessage());
+        assertEquals("Added 1 buckets.", listAppender.list.get(1).getMessage());
     }
 
     @Test
@@ -49,16 +51,16 @@ public class SorterTest {
 
         sorter.bucketSort(test_arr);
 
-        Assertions.assertEquals("Created empty list of buckets.", listAppender.list.get(0).getMessage());
-        Assertions.assertEquals("Added 8 buckets.", listAppender.list.get(1).getMessage());
-        Assertions.assertEquals("0.897 -> buckets[3].", listAppender.list.get(2).getMessage());
-        Assertions.assertEquals("0.565 -> buckets[2].", listAppender.list.get(3).getMessage());
-        Assertions.assertEquals("0.656 -> buckets[2].", listAppender.list.get(4).getMessage());
-        Assertions.assertEquals("1.0 -> buckets[4].", listAppender.list.get(5).getMessage());
-        Assertions.assertEquals("0.1234 -> buckets[0].", listAppender.list.get(6).getMessage());
-        Assertions.assertEquals("0.665 -> buckets[2].", listAppender.list.get(7).getMessage());
-        Assertions.assertEquals("0.3434 -> buckets[1].", listAppender.list.get(8).getMessage());
-        Assertions.assertEquals("0.0 -> buckets[0].", listAppender.list.get(9).getMessage());
+        assertEquals("Created empty list of buckets.", listAppender.list.get(0).getMessage());
+        assertEquals("Added 8 buckets.", listAppender.list.get(1).getMessage());
+        assertEquals("0.897 -> buckets[3].", listAppender.list.get(2).getMessage());
+        assertEquals("0.565 -> buckets[2].", listAppender.list.get(3).getMessage());
+        assertEquals("0.656 -> buckets[2].", listAppender.list.get(4).getMessage());
+        assertEquals("1.0 -> buckets[4].", listAppender.list.get(5).getMessage());
+        assertEquals("0.1234 -> buckets[0].", listAppender.list.get(6).getMessage());
+        assertEquals("0.665 -> buckets[2].", listAppender.list.get(7).getMessage());
+        assertEquals("0.3434 -> buckets[1].", listAppender.list.get(8).getMessage());
+        assertEquals("0.0 -> buckets[0].", listAppender.list.get(9).getMessage());
 
 
         Assertions.assertArrayEquals(expected_arr, test_arr, 0);
@@ -73,19 +75,19 @@ public class SorterTest {
 
         Assertions.assertArrayEquals(expected_arr, test_arr, 0);
 
-        Assertions.assertEquals("Created empty list of buckets.", listAppender.list.get(0).getMessage());
-        Assertions.assertEquals("Added 11 buckets.", listAppender.list.get(1).getMessage());
-        Assertions.assertEquals("10.0 -> buckets[10].", listAppender.list.get(2).getMessage());
-        Assertions.assertEquals("9.0 -> buckets[9].", listAppender.list.get(3).getMessage());
-        Assertions.assertEquals("8.0 -> buckets[8].", listAppender.list.get(4).getMessage());
-        Assertions.assertEquals("7.0 -> buckets[7].", listAppender.list.get(5).getMessage());
-        Assertions.assertEquals("6.0 -> buckets[6].", listAppender.list.get(6).getMessage());
-        Assertions.assertEquals("5.0 -> buckets[5].", listAppender.list.get(7).getMessage());
-        Assertions.assertEquals("4.0 -> buckets[4].", listAppender.list.get(8).getMessage());
-        Assertions.assertEquals("3.0 -> buckets[3].", listAppender.list.get(9).getMessage());
-        Assertions.assertEquals("2.0 -> buckets[2].", listAppender.list.get(10).getMessage());
-        Assertions.assertEquals("1.0 -> buckets[1].", listAppender.list.get(11).getMessage());
-        Assertions.assertEquals("0.0 -> buckets[0].", listAppender.list.get(12).getMessage());
+        assertEquals("Created empty list of buckets.", listAppender.list.get(0).getMessage());
+        assertEquals("Added 11 buckets.", listAppender.list.get(1).getMessage());
+        assertEquals("10.0 -> buckets[10].", listAppender.list.get(2).getMessage());
+        assertEquals("9.0 -> buckets[9].", listAppender.list.get(3).getMessage());
+        assertEquals("8.0 -> buckets[8].", listAppender.list.get(4).getMessage());
+        assertEquals("7.0 -> buckets[7].", listAppender.list.get(5).getMessage());
+        assertEquals("6.0 -> buckets[6].", listAppender.list.get(6).getMessage());
+        assertEquals("5.0 -> buckets[5].", listAppender.list.get(7).getMessage());
+        assertEquals("4.0 -> buckets[4].", listAppender.list.get(8).getMessage());
+        assertEquals("3.0 -> buckets[3].", listAppender.list.get(9).getMessage());
+        assertEquals("2.0 -> buckets[2].", listAppender.list.get(10).getMessage());
+        assertEquals("1.0 -> buckets[1].", listAppender.list.get(11).getMessage());
+        assertEquals("0.0 -> buckets[0].", listAppender.list.get(12).getMessage());
     }
 
     @Test
@@ -97,19 +99,19 @@ public class SorterTest {
 
         Assertions.assertArrayEquals(expected_arr, test_arr, 0);
 
-        Assertions.assertEquals("Created empty list of buckets.", listAppender.list.get(0).getMessage());
-        Assertions.assertEquals("Added 11 buckets.", listAppender.list.get(1).getMessage());
-        Assertions.assertEquals("0.0 -> buckets[0].", listAppender.list.get(2).getMessage());
-        Assertions.assertEquals("1.0 -> buckets[1].", listAppender.list.get(3).getMessage());
-        Assertions.assertEquals("2.0 -> buckets[2].", listAppender.list.get(4).getMessage());
-        Assertions.assertEquals("3.0 -> buckets[3].", listAppender.list.get(5).getMessage());
-        Assertions.assertEquals("4.0 -> buckets[4].", listAppender.list.get(6).getMessage());
-        Assertions.assertEquals("5.0 -> buckets[5].", listAppender.list.get(7).getMessage());
-        Assertions.assertEquals("6.0 -> buckets[6].", listAppender.list.get(8).getMessage());
-        Assertions.assertEquals("7.0 -> buckets[7].", listAppender.list.get(9).getMessage());
-        Assertions.assertEquals("8.0 -> buckets[8].", listAppender.list.get(10).getMessage());
-        Assertions.assertEquals("9.0 -> buckets[9].", listAppender.list.get(11).getMessage());
-        Assertions.assertEquals("10.0 -> buckets[10].", listAppender.list.get(12).getMessage());
+        assertEquals("Created empty list of buckets.", listAppender.list.get(0).getMessage());
+        assertEquals("Added 11 buckets.", listAppender.list.get(1).getMessage());
+        assertEquals("0.0 -> buckets[0].", listAppender.list.get(2).getMessage());
+        assertEquals("1.0 -> buckets[1].", listAppender.list.get(3).getMessage());
+        assertEquals("2.0 -> buckets[2].", listAppender.list.get(4).getMessage());
+        assertEquals("3.0 -> buckets[3].", listAppender.list.get(5).getMessage());
+        assertEquals("4.0 -> buckets[4].", listAppender.list.get(6).getMessage());
+        assertEquals("5.0 -> buckets[5].", listAppender.list.get(7).getMessage());
+        assertEquals("6.0 -> buckets[6].", listAppender.list.get(8).getMessage());
+        assertEquals("7.0 -> buckets[7].", listAppender.list.get(9).getMessage());
+        assertEquals("8.0 -> buckets[8].", listAppender.list.get(10).getMessage());
+        assertEquals("9.0 -> buckets[9].", listAppender.list.get(11).getMessage());
+        assertEquals("10.0 -> buckets[10].", listAppender.list.get(12).getMessage());
     }
 
     @Test
