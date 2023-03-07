@@ -10,17 +10,17 @@ public class ArcCos {
 
         double e;
         double n = 1;
-        double sum = x;
+        double arcsin = x;
 
         do {
             nc *= 2 * n - 1;
             df *= 2 * n;
             e = (nc * Math.pow(x, 2 * n - 1)) / (df * (2 * n - 1));
-            sum += e;
+            arcsin += e;
             n++;
         }while (Math.abs(e) > 0.0001);
 
-        return Math.PI / 2 -  sum;
+        return Math.PI / 2 -  arcsin;
     }
 
 
