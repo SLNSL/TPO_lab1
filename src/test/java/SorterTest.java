@@ -1,13 +1,15 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
 public class SorterTest {
-    private final Sorter sorter;
+    private static Sorter sorter;
 
-    {
-        sorter = new Sorter();
+    @BeforeAll
+    static void start() {
+        SorterTest.sorter = new Sorter();
     }
 
     @Test

@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4068d9b6-2ccf-4c06-a460-a8a70243c925" name="Changes" comment="Всё сделал">
+    <list default="true" id="4068d9b6-2ccf-4c06-a460-a8a70243c925" name="Changes" comment="Изменил ArcCos.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ArcCos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ArcCos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SorterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SorterTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +72,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ArcCosTest">
+  <component name="RunManager" selected="JUnit.SorterTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hatifnatts.Main" />
       <module name="TPO_lab1" />
@@ -114,23 +114,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MainTest.testIfHemulClimbedUp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SorterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TPO_lab1" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MainTest" />
-      <option name="METHOD_NAME" value="testIfHemulClimbedUp" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="SorterTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SorterTest" />
         <item itemvalue="JUnit.ArcCosTest" />
         <item itemvalue="JUnit.MainTest" />
         <item itemvalue="JUnit.MainTest.checkNumberOfHatifnattsInCrowd" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.MainTest.testIfHemulClimbedUp" />
       </list>
     </recent_temporary>
   </component>
@@ -146,7 +145,8 @@
       <workItem from="1677582459465" duration="5358000" />
       <workItem from="1677604105991" duration="13432000" />
       <workItem from="1677665359225" duration="98000" />
-      <workItem from="1677667556378" duration="334000" />
+      <workItem from="1677667556378" duration="660000" />
+      <workItem from="1678170980523" duration="707000" />
     </task>
     <task id="LOCAL-00001" summary="FC">
       <created>1677334099560</created>
@@ -204,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677665212535</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Изменил ArcCos.java">
+      <created>1677668197047</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677668197047</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,6 +235,7 @@
     <MESSAGE value="Добавил 3 пункт" />
     <MESSAGE value="Сделал второй пункт" />
     <MESSAGE value="Всё сделал" />
-    <option name="LAST_COMMIT_MESSAGE" value="Всё сделал" />
+    <MESSAGE value="Изменил ArcCos.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменил ArcCos.java" />
   </component>
 </project>
