@@ -1,15 +1,25 @@
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ch.qos.logback.classic.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 
 public class SorterTest {
-    private static Sorter sorter;
+    private Sorter sorter;
+    private ListAppender<ILoggingEvent> listAppender;
 
-    @BeforeAll
-    static void start() {
-        SorterTest.sorter = new Sorter();
+    @BeforeEach
+    public void start() {
+        Logger logger = (Logger) LoggerFactory.getLogger(Sorter.class);
+        this.listAppender = new ListAppender<>();
+        listAppender.start();
+        logger.addAppender(listAppender);
+
+        this.sorter = new Sorter();
     }
 
     @Test
@@ -19,6 +29,7 @@ public class SorterTest {
 
         sorter.bucketSort(test_arr);
 
+        Assertions.assertEquals("Array is empty.", listAppender.list.get(0).getMessage());
         Assertions.assertArrayEquals(expected_arr, test_arr, 0);
     }
 
