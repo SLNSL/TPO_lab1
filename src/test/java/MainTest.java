@@ -7,12 +7,12 @@ import hatifnatts.characters.hatifnatt.HatifnattMessages;
 import hatifnatts.characters.hatifnatt.HatifnattStatus;
 import hatifnatts.characters.hemul.Hemul;
 import hatifnatts.enums.*;
+import hatifnatts.exceptions.HaveNotArrivedYetException;
 import hatifnatts.exceptions.HaveNotBeenNoticedYetException;
 import hatifnatts.exceptions.ImpossibleNumberException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -42,13 +42,11 @@ public class MainTest {
 
 
     @Test
-    @Order(2)
     void checkNumberOfSkirts() {
         Assertions.assertTrue(hemul.getSkirts().size() - 1 > 1);
     }
 
     @Test
-    @Order(3)
     public void checkMessageHiderBuffer() throws ImpossibleNumberException, HaveNotBeenNoticedYetException {
         crowd.swarm();
         assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
@@ -70,7 +68,6 @@ public class MainTest {
     }
 
     @Test
-    @Order(4)
     public void checkLocation(){
 
         assertEquals(hemul.getLocation(), Location.GLADE_OF_HATIFNATTS);
@@ -82,7 +79,6 @@ public class MainTest {
 
 
     @Test
-    @Order(5)
     public void testIfHatifnattsSurrounded(){
         crowd.surround(hemul);
 
@@ -90,7 +86,6 @@ public class MainTest {
     }
 
     @Test
-    @Order(6)
     public void testHatifnattsDescription() throws ImpossibleNumberException {
         crowd.flash(Location.BETWEEN_THE_TREES, 0);
 
@@ -102,7 +97,6 @@ public class MainTest {
     }
 
     @Test
-    @Order(7)
     public void testIfAllSkirtsArePickedUp() {
         hemul.pickUpSkirts();
 
@@ -112,12 +106,27 @@ public class MainTest {
     }
 
     @Test
-    @Order(8)
     public void testIfHemulClimbedUp() {
         hemul.coward();
         hemul.climb(pole);
 
         assertEquals(Location.ON_TOP_OF_THE_POLE, hemul.getLocation());
     }
+
+
+    @Test
+    public void testSequenceOfActionsOnLocation() throws HaveNotArrivedYetException {
+        hemul.goTo(Location.GLADE_OF_HATIFNATTS);
+        hemul.walk(Location.GLADE_OF_HATIFNATTS);
+    }
+
+    @Test
+    public void testSequenceOfActionsWithCrows() throws HaveNotBeenNoticedYetException, ImpossibleNumberException {
+        hemul.see(crowd);
+
+        crowd.swarm();
+        crowd.lookAt(hemul);
+    }
+
 
 }

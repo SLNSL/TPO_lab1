@@ -20,7 +20,7 @@ import java.util.List;
 
 public class Hemul implements HemulActions {
 
-    private Location location;
+    private Location location = Location.UNKNOWN;
     private HemulStatus hemulStatus = HemulStatus.NOT_SCARED;
     private int energy = 30;
 
