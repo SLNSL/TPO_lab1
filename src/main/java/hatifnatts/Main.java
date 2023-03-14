@@ -13,10 +13,11 @@ import hatifnatts.characters.hatifnatt.Hatifnatt;
 import hatifnatts.characters.hatifnatt.HatifnattStatus;
 import hatifnatts.characters.hemul.Hemul;
 import hatifnatts.exceptions.HaveNotArrivedYetException;
+import hatifnatts.exceptions.HaveNotBeenNoticedYetException;
 import hatifnatts.exceptions.ImpossibleNumberException;
 
 public class Main{
-    public static void main(String[] args) throws ImpossibleNumberException, HaveNotArrivedYetException {
+    public static void main(String[] args) throws ImpossibleNumberException, HaveNotArrivedYetException, HaveNotBeenNoticedYetException {
         Pole pole = new Pole(true, true);
         Hemul hemul = new Hemul( 7);
         //Hatifnatt hatifnatt = new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2);

@@ -7,6 +7,7 @@ import hatifnatts.characters.hatifnatt.HatifnattMessages;
 import hatifnatts.characters.hatifnatt.HatifnattStatus;
 import hatifnatts.characters.hemul.Hemul;
 import hatifnatts.enums.*;
+import hatifnatts.exceptions.HaveNotBeenNoticedYetException;
 import hatifnatts.exceptions.ImpossibleNumberException;
 
 import org.junit.jupiter.api.Assertions;
@@ -48,7 +49,7 @@ public class MainTest {
 
     @Test
     @Order(3)
-    public void checkMessageHiderBuffer() throws ImpossibleNumberException{
+    public void checkMessageHiderBuffer() throws ImpossibleNumberException, HaveNotBeenNoticedYetException {
         crowd.swarm();
         assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
 

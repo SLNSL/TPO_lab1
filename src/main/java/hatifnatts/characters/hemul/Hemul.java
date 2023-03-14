@@ -4,7 +4,8 @@ package hatifnatts.characters.hemul;
 import hatifnatts.characters.SunRay;
 import hatifnatts.characters.common.AbleToGiveEnergy;
 import hatifnatts.characters.common.SkirtStatus;
-import hatifnatts.characters.hatifnatt.HatifnattActions;
+import hatifnatts.characters.hatifnatt.CrowdOfHatifnatts;
+import hatifnatts.characters.hatifnatt.Hatifnatt;
 import hatifnatts.enums.Adverbs;
 import hatifnatts.enums.Location;
 import hatifnatts.exceptions.HaveNotArrivedYetException;
@@ -30,12 +31,6 @@ public class Hemul implements HemulActions {
     public void setLocation(Location location) {
         this.location = location;
     }
-
-
-
-
-
-
 
     public List<Skirt> getSkirts() {
         return skirts;
@@ -92,8 +87,14 @@ public class Hemul implements HemulActions {
     }
 
     @Override
-    public void see(HatifnattActions hatifnatt) {
+    public void see(Hatifnatt hatifnatt) {
         new HemulMessages(this).see(hatifnatt);
+    }
+
+    @Override
+    public void see(CrowdOfHatifnatts hatifnatts) {
+        hatifnatts.setNoticed(true);
+        new HemulMessages(this).see(hatifnatts);
     }
 
     @Override

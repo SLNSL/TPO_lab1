@@ -1,7 +1,8 @@
 package hatifnatts.characters.hemul;
 
 import hatifnatts.characters.SunRay;
-import hatifnatts.characters.hatifnatt.HatifnattActions;
+import hatifnatts.characters.hatifnatt.CrowdOfHatifnatts;
+import hatifnatts.characters.hatifnatt.Hatifnatt;
 import hatifnatts.enums.Adverbs;
 import hatifnatts.enums.Location;
 import hatifnatts.characters.Barometer;
@@ -39,8 +40,13 @@ public class HemulMessages extends Message implements HemulActions{
         System.out.println(intro()+"crashed into the "+pole.getClass().getSimpleName());
     }
 
-    public void see(HatifnattActions hatifnatt) {
+    public void see(Hatifnatt hatifnatt) {
         System.out.println(intro()+"saw "+hatifnatt.getClass().getSimpleName());
+    }
+
+    @Override
+    public void see(CrowdOfHatifnatts hatifnatts) {
+        System.out.println(intro()+"saw "+hatifnatts.getClass().getSimpleName());
     }
 
     @Override

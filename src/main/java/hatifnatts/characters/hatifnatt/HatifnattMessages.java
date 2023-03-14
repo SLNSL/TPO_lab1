@@ -35,7 +35,7 @@ public class HatifnattMessages extends Message implements HatifnattActions {
     }
 
 
-    {
+    static {
         MessagesHider.setBuffer(MessagesHider.getBuffer()+1);
     }
 
@@ -47,6 +47,8 @@ public class HatifnattMessages extends Message implements HatifnattActions {
     public void approach(Object o){
         if (MessagesHider.repetitionAccepted()){System.out.println(intro()+"approached the "+o.getClass().getSimpleName());}
     }
+
+
 
     @Override
     public void lookAt(Object o) {

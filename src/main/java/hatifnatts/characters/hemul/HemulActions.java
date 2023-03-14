@@ -3,7 +3,8 @@ package hatifnatts.characters.hemul;
 import hatifnatts.characters.Barometer;
 import hatifnatts.characters.Pole;
 import hatifnatts.characters.SunRay;
-import hatifnatts.characters.hatifnatt.HatifnattActions;
+import hatifnatts.characters.hatifnatt.CrowdOfHatifnatts;
+import hatifnatts.characters.hatifnatt.Hatifnatt;
 import hatifnatts.enums.Adverbs;
 import hatifnatts.enums.Location;
 import hatifnatts.exceptions.HaveNotArrivedYetException;
@@ -14,7 +15,9 @@ public interface HemulActions{
     void lookForPlants(Adverbs adverb);
     void lookUp();
     void crashInto(Pole pole);
-    void see(HatifnattActions hatifnatt);
+    void see(Hatifnatt hatifnatt);
+
+    void see(CrowdOfHatifnatts hatifnatts);
     void think(String text);
     void think(String text, Adverbs adverb);
     void lookAround(Adverbs adverb);
