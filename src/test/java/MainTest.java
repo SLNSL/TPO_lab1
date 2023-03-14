@@ -30,7 +30,7 @@ public class MainTest {
     public static void creation() {
         try {
          pole = new Pole(true, true);
-         hemul = new Hemul(Location.GLADE_OF_HATIFNATTS, 7);
+         hemul = new Hemul( 7);
          crowd = new CrowdOfHatifnatts(new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2), 123);
          barometer = new Barometer(Location.ON_TOP_OF_THE_POLE, Colour.RED, Material.WOODEN);
          clockHand = barometer.new ClockHand();

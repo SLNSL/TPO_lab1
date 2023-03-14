@@ -7,6 +7,7 @@ import hatifnatts.characters.common.SkirtStatus;
 import hatifnatts.characters.hatifnatt.HatifnattActions;
 import hatifnatts.enums.Adverbs;
 import hatifnatts.enums.Location;
+import hatifnatts.exceptions.HaveNotArrivedYetException;
 import hatifnatts.exceptions.ImpossibleNumberException;
 import hatifnatts.exceptions.NotEnoughEnergyException;
 import hatifnatts.characters.Barometer;
@@ -30,36 +31,27 @@ public class Hemul implements HemulActions {
         this.location = location;
     }
 
-    public HemulStatus getHemulStatus() {
-        return hemulStatus;
-    }
 
-    public void setHemulStatus(HemulStatus hemulStatus) {
-        this.hemulStatus = hemulStatus;
-    }
 
-    public int getEnergy() {
-        return energy;
-    }
+
+
+
 
     public List<Skirt> getSkirts() {
         return skirts;
     }
 
-    public void setSkirts(List<Skirt> skirts) {
-        this.skirts = skirts;
-    }
+
 
     public void setEnergy(int energy) {
         this.energy = energy;
     }
 
-    //private Fear fear;
-    private List<Skirt> skirts = new ArrayList<>();
+
+    private final List<Skirt> skirts = new ArrayList<>();
 
 
-    public Hemul(Location location, int numberOfSkirts) throws ImpossibleNumberException {
-        this.location = location;
+    public Hemul(int numberOfSkirts) throws ImpossibleNumberException {
         if (numberOfSkirts < 1) {
             throw new ImpossibleNumberException("It can't be less than 1 skirt");
         } else if (numberOfSkirts > 10) {
@@ -69,7 +61,7 @@ public class Hemul implements HemulActions {
                 skirts.add(new Skirt());
             }
         }
-        System.out.println(this.toString());
+        System.out.println(this);
         //System.out.printf("> Хемуль:\n\tКоординаты:\tx = %.3f\ty = %.3f\tz = %.3f\n",x,y,z);
         //System.out.println("\tСостояние:\tЛокация - "+location);
     }
@@ -79,8 +71,8 @@ public class Hemul implements HemulActions {
         new HemulMessages(this).goTo(location);
     }
 
-    public void walk(Location location) {
-        this.location = location;
+    public void walk(Location location) throws HaveNotArrivedYetException{
+        if (!this.location.equals(location)) throw new HaveNotArrivedYetException("Hemul has not arrived on the " + location);
         new HemulMessages(this).walk(location);
     }
 
@@ -143,7 +135,7 @@ public class Hemul implements HemulActions {
     }
 
 
-    public class Skirt {
+    public static class Skirt {
         Skirt() {
             status = SkirtStatus.DOWN;
         }
@@ -220,13 +212,7 @@ public class Hemul implements HemulActions {
 
         if (hemulStatus == HemulStatus.SCARED) {
             //new Fear().giveSuperHemulPower(this);
-            AbleToGiveEnergy fear = new AbleToGiveEnergy() {
-                @Override
-                public void giveSuperHemulPower(Hemul hemul) {
-                    hemul.setEnergy(100);
-                    //System.out.println("> Страх:\n\tпридаёт Хемулю нехемульскую силу");
-                }
-            };
+            AbleToGiveEnergy fear = hemul -> hemul.setEnergy(100);
             fear.giveSuperHemulPower(this);
         }
         if (energy >= 100) {
@@ -262,7 +248,6 @@ public class Hemul implements HemulActions {
     @Override
     public String toString() {
         return "> Hemul:\n" +
-                "\tlocation=" + location +
                 ",\themulStatus=" + hemulStatus +
                 ",\tenergy=" + energy +
                 ",\n\tskirts=" + skirts;

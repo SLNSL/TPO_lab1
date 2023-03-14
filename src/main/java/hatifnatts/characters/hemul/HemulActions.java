@@ -6,10 +6,11 @@ import hatifnatts.characters.SunRay;
 import hatifnatts.characters.hatifnatt.HatifnattActions;
 import hatifnatts.enums.Adverbs;
 import hatifnatts.enums.Location;
+import hatifnatts.exceptions.HaveNotArrivedYetException;
 
 public interface HemulActions{
     void goTo(Location location);
-    void walk(Location location);
+    void walk(Location location) throws HaveNotArrivedYetException;
     void lookForPlants(Adverbs adverb);
     void lookUp();
     void crashInto(Pole pole);

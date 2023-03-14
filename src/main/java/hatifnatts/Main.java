@@ -12,12 +12,13 @@ import hatifnatts.characters.hatifnatt.CrowdOfHatifnatts;
 import hatifnatts.characters.hatifnatt.Hatifnatt;
 import hatifnatts.characters.hatifnatt.HatifnattStatus;
 import hatifnatts.characters.hemul.Hemul;
+import hatifnatts.exceptions.HaveNotArrivedYetException;
 import hatifnatts.exceptions.ImpossibleNumberException;
 
 public class Main{
-    public static void main(String[] args) throws ImpossibleNumberException {
+    public static void main(String[] args) throws ImpossibleNumberException, HaveNotArrivedYetException {
         Pole pole = new Pole(true, true);
-        Hemul hemul = new Hemul(Location.GLADE_OF_HATIFNATTS, 7);
+        Hemul hemul = new Hemul( 7);
         //Hatifnatt hatifnatt = new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2);
         CrowdOfHatifnatts crowd = new CrowdOfHatifnatts(new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2), 123);
         Barometer barometer = new Barometer(Location.ON_TOP_OF_THE_POLE, Colour.RED, Material.WOODEN);
@@ -25,6 +26,7 @@ public class Main{
 
         hemul.goTo(Location.GLADE_OF_HATIFNATTS);
         hemul.walk(Location.GLADE_OF_HATIFNATTS);
+
         hemul.lookForPlants(Adverbs.ZEALOUSLY);
         hemul.crashInto(pole);
         hemul.lookUp();

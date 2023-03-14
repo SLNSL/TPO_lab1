@@ -7,4 +7,6 @@ public enum Location{
     AT_THE_SIDE_OF_THE_POLE,
     ON_TOP_OF_THE_POLE,
 
+    UNKNOWN
+
 }
