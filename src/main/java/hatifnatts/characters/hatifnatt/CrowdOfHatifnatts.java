@@ -13,20 +13,19 @@ import java.util.List;
 public class CrowdOfHatifnatts implements CrowdOfHatifnattsActions {
 
     private static int numberOfHatifnatts = 0;
-
-    private boolean isNoticed = false;
-
-
-
-    public void setNoticed(boolean noticed) {
-        isNoticed = noticed;
-    }
-
     public static void incrementHatifnatts(){numberOfHatifnatts++;}
     public static int getNumberOfHatifnatts(){return numberOfHatifnatts;}
+
+    private boolean isNoticed = false;
     private HatifnattStatus hatifnattStatus;
 
-
+    public void setNoticed(boolean isNoticed) {
+        this.isNoticed = isNoticed;
+    }
+    
+    public boolean isNoticed(){
+        return isNoticed;
+    }
     public List<Hatifnatt> crowd = new ArrayList<>();
 
     public HatifnattStatus getHatifnattStatus() {
@@ -37,15 +36,14 @@ public class CrowdOfHatifnatts implements CrowdOfHatifnattsActions {
         if (initialAmount < 2){
             throw new ImpossibleNumberException(initialAmount + " hatifnatts isn't a crowd. It must be at least 2 of them.");
         }
-        for (int i = 0; i < (initialAmount-1); i++){
+        for (int i = 0; i < initialAmount; i++){
             addItem(hatifnatt);
         }
-        addItem(hatifnatt);
         hatifnattStatus = HatifnattStatus.LINE_AFTER_LINE;
-//        System.out.println(this.toString());
     }
 
     public void addItem(Hatifnatt hatifnatt){
+        incrementHatifnatts();
         crowd.add(hatifnatt);
     }
 
@@ -53,35 +51,23 @@ public class CrowdOfHatifnatts implements CrowdOfHatifnattsActions {
     @Override
     public void lookAt(Object o) throws ImpossibleNumberException, HaveNotBeenNoticedYetException {
         if (!isNoticed) throw new HaveNotBeenNoticedYetException("Crowd has not been noticed by Hemul yet.");
-        HatifnattMessages.MessagesHider.repeat(false);
-        for (int i =1; i<crowd.size();i++){
-            new HatifnattMessages(crowd.get(i)).lookAt(o);
-        }
-        HatifnattMessages.MessagesHider.repeat(true);
-        new HatifnattMessages(crowd.get(0)).lookAt(o);
+        
+        new HatifnattMessages(crowd.get(0), this.crowd.size()).lookAt(o);
     }
 
     @Override
     public void approach(Object o) throws ImpossibleNumberException, HaveNotBeenNoticedYetException {
         if (!isNoticed) throw new HaveNotBeenNoticedYetException("Crowd has not been noticed by Hemul yet.");
-        HatifnattMessages.MessagesHider.repeat(false);
-        for (int i =1; i<crowd.size();i++){
-            new HatifnattMessages(crowd.get(i)).approach(o);
-        }
-        HatifnattMessages.MessagesHider.repeat(true);
-        new HatifnattMessages(crowd.get(0)).approach(o);
+
+        new HatifnattMessages(crowd.get(0), this.crowd.size()).approach(o);
     }
 
 
     public void swarm() throws HaveNotBeenNoticedYetException {
         if (!isNoticed) throw new HaveNotBeenNoticedYetException("Crowd has not been noticed by Hemul yet.");
+        
         try {
-            HatifnattMessages.MessagesHider.repeat(false);
-            for (int i =1; i<crowd.size();i++){
-                new HatifnattMessages(crowd.get(i)).swarm();
-            }
-            HatifnattMessages.MessagesHider.repeat(true);
-            new HatifnattMessages(crowd.get(0)).swarm();
+            new HatifnattMessages(crowd.get(0), this.crowd.size()).swarm();
         } catch (ImpossibleNumberException e) {
             e.printStackTrace();
         }
@@ -90,49 +76,31 @@ public class CrowdOfHatifnatts implements CrowdOfHatifnattsActions {
     @Override
     public void hear(boolean heard) throws ImpossibleNumberException , HaveNotBeenNoticedYetException {
         if (!isNoticed) throw new HaveNotBeenNoticedYetException("Crowd has not been noticed by Hemul yet.");
-        HatifnattMessages.MessagesHider.repeat(false);
-        for (int i =1; i<crowd.size();i++){
-            new HatifnattMessages(crowd.get(i)).hear(heard);
-        }
-        HatifnattMessages.MessagesHider.repeat(true);
-        new HatifnattMessages(crowd.get(0)).hear(heard);
+
+        new HatifnattMessages(crowd.get(0), this.crowd.size()).hear(heard);
     }
 
     @Override
     public void takeAStepTowards(Hemul hemul, HatifnattStatus hatifnattStatus) throws ImpossibleNumberException, HaveNotBeenNoticedYetException {
         if (!isNoticed) throw new HaveNotBeenNoticedYetException("Crowd has not been noticed by Hemul yet.");
-        HatifnattMessages.MessagesHider.repeat(false);
-        this.hatifnattStatus=hatifnattStatus;
-        for (int i =1; i<crowd.size();i++){
-            new HatifnattMessages(crowd.get(i)).takeAStepTowards(hemul, hatifnattStatus);
-        }
-        HatifnattMessages.MessagesHider.repeat(true);
-        new HatifnattMessages(crowd.get(0)).takeAStepTowards(hemul, hatifnattStatus);
+
+        new HatifnattMessages(crowd.get(0), this.crowd.size()).takeAStepTowards(hemul, hatifnattStatus);
     }
 
     @Override
     public void hiss(Adverbs adverb) throws ImpossibleNumberException {
         this.isNoticed = true;
-        HatifnattMessages.MessagesHider.repeat(false);
-        for (int i =1; i<crowd.size();i++){
-            new HatifnattMessages(crowd.get(i)).hiss(adverb);
-        }
-        HatifnattMessages.MessagesHider.repeat(true);
-        new HatifnattMessages(crowd.get(0)).hiss(adverb);
+
+        new HatifnattMessages(crowd.get(0), this.crowd.size()).hiss(adverb);
     }
 
 
     public void surround(Hemul hemul) {
         this.isNoticed = true;
         hatifnattStatus= HatifnattStatus.IN_A_CIRCLE;
-        //System.out.println("> Хатифнатты:\n\tокружили Хемуля "+hatifnattStatus);
-        HatifnattMessages.MessagesHider.repeat(false);
+        
         try {
-            for (int i =1; i<crowd.size();i++){
-                new HatifnattMessages(crowd.get(i)).surround(hemul);
-            }
-            HatifnattMessages.MessagesHider.repeat(true);
-            new HatifnattMessages(crowd.get(0)).surround(hemul);
+            new HatifnattMessages(crowd.get(0), this.crowd.size()).surround(hemul);
         } catch (ImpossibleNumberException e) {
             e.printStackTrace();
         }
@@ -141,48 +109,35 @@ public class CrowdOfHatifnatts implements CrowdOfHatifnattsActions {
     @Override
     public void swingPaws() throws ImpossibleNumberException, HaveNotBeenNoticedYetException {
         if (!isNoticed) throw new HaveNotBeenNoticedYetException("Crowd has not been noticed by Hemul yet.");
-        HatifnattMessages.MessagesHider.repeat(false);
-        for (int i =1; i<crowd.size();i++){
-            new HatifnattMessages(crowd.get(i)).swingPaws();
-        }
-        HatifnattMessages.MessagesHider.repeat(true);
-        new HatifnattMessages(crowd.get(0)).swingPaws();
+
+        new HatifnattMessages(crowd.get(0), this.crowd.size()).swingPaws();
     }
 
 
     public void flash(Location loc, int loudness) throws ImpossibleNumberException {
 
-        for (Hatifnatt hatifnatt:crowd){
+        for (Hatifnatt hatifnatt : crowd){
             hatifnatt.setLoudness(loudness);
             hatifnatt.setLocation(loc);
             hatifnatt.getFace().move(MovableStatus.MOTIONLESS);
         }
-
-        //System.out.println("> Хатифнатты:\n\t"+location+" с громкостью "+loudness+" мелькают всё новые и новые");
+        
         try {
-            HatifnattMessages.MessagesHider.repeat(false);
-            for (int i =1; i<crowd.size();i++){
-                new HatifnattMessages(crowd.get(i)).flash(loc,loudness);
-            }
-            HatifnattMessages.MessagesHider.repeat(true);
-            new HatifnattMessages(crowd.get(0)).flash(loc,loudness);
+            new HatifnattMessages(crowd.get(0), this.crowd.size()).flash(loc, loudness);
         } catch (ImpossibleNumberException e) {
             e.printStackTrace();
         }
-        for (int i=0; i<13; i++){
-            addItem(new Hatifnatt(crowd.get(0).getLocation(),3));
+        
+        for (int i = 0; i < 13; i++){
+            crowd.add(new Hatifnatt(crowd.get(0).getLocation(),3));
         }
+        
         System.out.println("\tNew size of the crowd:\t"+crowd.size());
     }
 
     @Override
     public void move(Hemul hemul, int loudness) throws ImpossibleNumberException {
-        HatifnattMessages.MessagesHider.repeat(false);
-        for (int i =1; i<crowd.size();i++){
-            new HatifnattMessages(crowd.get(i)).move(hemul, loudness);
-        }
-        HatifnattMessages.MessagesHider.repeat(true);
-        new HatifnattMessages(crowd.get(0)).move(hemul, loudness);
+        new HatifnattMessages(crowd.get(0), this.crowd.size()).move(hemul, loudness);
     }
 
     @Override

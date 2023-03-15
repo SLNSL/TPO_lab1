@@ -12,21 +12,14 @@ import java.util.List;
 public class Hatifnatt implements HatifnattActions {
 
     private Location location;
-    private List<Paw> paws = new ArrayList<>();
-    private Face face;
+    private final List<Paw> paws = new ArrayList<>();
+    private final Face face;
     private int loudness;
-    private HatifnattStatus hatifnattStatus;
-
-
-    {
-        CrowdOfHatifnatts.incrementHatifnatts();
-    }
-
-
-    public Hatifnatt(Location location, int numberOfPaws) throws ImpossibleNumberException {
+    
+    public Hatifnatt(Location location, int numberOfPaws, boolean... increment) throws ImpossibleNumberException {
         this.location = location;
-        //hatifnattStatus = HatifnattStatus.LINE_AFTER_LINE;
-        if (numberOfPaws<0){
+        
+        if (numberOfPaws < 0){
             throw new ImpossibleNumberException(numberOfPaws + " paws can't exist");
         }else {
             for(int i = 0; i < numberOfPaws; i++){
@@ -34,24 +27,27 @@ public class Hatifnatt implements HatifnattActions {
             }
         }
         face = new Face();
-        //System.out.println(this.toString());
+        
+        if (! (increment.length > 0 && !increment[0])){
+            CrowdOfHatifnatts.incrementHatifnatts();
+        }
     }
 
 
     @Override
     public void lookAt(Object o) throws ImpossibleNumberException {
-        new HatifnattMessages(this).lookAt(o);
+        new HatifnattMessages(this, 1).lookAt(o);
     }
 
 
 
     public void hear(boolean heard) throws ImpossibleNumberException {
-        HatifnattMessages message = new HatifnattMessages(this);
+        HatifnattMessages message = new HatifnattMessages(this, 1);
         message.hear(heard);
     }
 
     public void approach(Object o) throws ImpossibleNumberException {
-        new HatifnattMessages(this).approach(o);
+        new HatifnattMessages(this, 1).approach(o);
     }
 
 
@@ -59,7 +55,7 @@ public class Hatifnatt implements HatifnattActions {
     public void hiss(Adverbs adverb){
         //System.out.println("> Хатифнатты:\n\tШшш-шшш-шшш-шшш!");
         try {
-            new HatifnattMessages(this).hiss(adverb);
+            new HatifnattMessages(this, 1).hiss(adverb);
         } catch (ImpossibleNumberException e) {
             e.printStackTrace();
         }
@@ -70,7 +66,7 @@ public class Hatifnatt implements HatifnattActions {
             paw.move(MovableStatus.WAVE);
         }
         try {
-            new HatifnattMessages(this).swingPaws();
+            new HatifnattMessages(this, 1).swingPaws();
         } catch (ImpossibleNumberException e) {
             e.printStackTrace();
         }
@@ -97,20 +93,6 @@ public class Hatifnatt implements HatifnattActions {
         return face;
     }
 
-   /* public void surround(Hemul hemul){
-        hatifnattStatus= HatifnattStatus.IN_A_CIRCLE;
-        //System.out.println("> Хатифнатты:\n\tокружили Хемуля "+hatifnattStatus);
-        try {
-            new HatifnattMessages(this).surround(hemul);
-        } catch (ImpossibleNumberException e) {
-            e.printStackTrace();
-        }
-    }*/
-
-
-
-
-
     public class Paw {
         private MovableStatus pawStatus;
 
@@ -120,7 +102,6 @@ public class Hatifnatt implements HatifnattActions {
 
         public void move(MovableStatus pawStatus) {
             this.pawStatus = pawStatus;
-            //System.out.println("> Хатифнатты:\n\tЛапы:\t" + getPawStatus());
         }
 
         public MovableStatus getPawStatus() {
@@ -135,8 +116,7 @@ public class Hatifnatt implements HatifnattActions {
         }
     }
 
-
-
+    
     public class Face{
 
         private MovableStatus facesStatus;
@@ -148,7 +128,6 @@ public class Hatifnatt implements HatifnattActions {
         }
         public void move(MovableStatus facesStatus){
             this.facesStatus = facesStatus;
-            //System.out.println("> Хатифнатты:\n\tЛица "+facesStatus);
         }
 
         @Override
@@ -165,7 +144,7 @@ public class Hatifnatt implements HatifnattActions {
         //System.out.println("> Хатифнатты:\n\tсделали шаг в сторону Хемуля "+hatifnattStatus);
         try {
 
-            new HatifnattMessages(this).takeAStepTowards(hemul, hatifnattStatus);
+            new HatifnattMessages(this, 1).takeAStepTowards(hemul, hatifnattStatus);
         } catch (ImpossibleNumberException e) {
             e.printStackTrace();
         }
@@ -179,29 +158,4 @@ public class Hatifnatt implements HatifnattActions {
                 ", face=" + face +
                 ", loudness=" + loudness;
     }
-    /*public void flash(Location loc, int loudness){
-        this.loudness=loudness;
-        location = loc;
-        face.move(MovableStatus.MOTIONLESS);
-        //System.out.println("> Хатифнатты:\n\t"+location+" с громкостью "+loudness+" мелькают всё новые и новые");
-        try {
-            new HatifnattMessages(this).flash(location,loudness);
-        } catch (ImpossibleNumberException e) {
-            e.printStackTrace();
-        }
-        System.out.println("\tНовое колличество:\t"+numberOfHatifnatts);
-    }*/
-
-
-
-    /*public void move(Hemul hemul, int loudness){
-        this.loudness=loudness;
-        System.out.println("> Хатифнатты:\n\tгромкость "+loudness);
-        int n = (int)Math.round(Math.random()*(5)+3);
-        for (int i=0;i<n;i++){
-            takeAStepTowards(hemul);
-        }
-        System.out.println("> Хатифнатты:\n\tв итоге сделали "+n+" шагов в сторону Хемуля "+hatifnattStatus);
-    }*/
-
 }

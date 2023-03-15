@@ -20,8 +20,9 @@ public class Main{
     public static void main(String[] args) throws ImpossibleNumberException, HaveNotArrivedYetException, HaveNotBeenNoticedYetException {
         Pole pole = new Pole(true, true);
         Hemul hemul = new Hemul( 7);
-        //Hatifnatt hatifnatt = new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2);
-        CrowdOfHatifnatts crowd = new CrowdOfHatifnatts(new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2), 123);
+        CrowdOfHatifnatts crowd = new CrowdOfHatifnatts(
+                new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2, false),
+                123);
         Barometer barometer = new Barometer(Location.ON_TOP_OF_THE_POLE, Colour.RED, Material.WOODEN);
         Barometer.ClockHand clockHand = barometer.new ClockHand();
 
@@ -50,11 +51,7 @@ public class Main{
         crowd.takeAStepTowards(hemul, HatifnattStatus.LINE_AFTER_LINE);
         crowd.hiss(Adverbs.TERRIBLY);
         crowd.swingPaws();
-
-
-
-
-
+        
         hemul.coward();
         hemul.lookAround(pole);
         crowd.surround(hemul);

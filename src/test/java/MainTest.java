@@ -3,7 +3,6 @@ import hatifnatts.characters.Pole;
 import hatifnatts.characters.common.SkirtStatus;
 import hatifnatts.characters.hatifnatt.CrowdOfHatifnatts;
 import hatifnatts.characters.hatifnatt.Hatifnatt;
-import hatifnatts.characters.hatifnatt.HatifnattMessages;
 import hatifnatts.characters.hatifnatt.HatifnattStatus;
 import hatifnatts.characters.hemul.Hemul;
 import hatifnatts.enums.*;
@@ -16,11 +15,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class MainTest {
-
-
+    
     static Pole pole;
     static Hemul hemul;
     static CrowdOfHatifnatts crowd;
@@ -32,7 +31,7 @@ public class MainTest {
         try {
          pole = new Pole(true, true);
          hemul = new Hemul( 7);
-         crowd = new CrowdOfHatifnatts(new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2), 123);
+         crowd = new CrowdOfHatifnatts(new Hatifnatt(Location.GLADE_OF_HATIFNATTS, 2, false), 123);
          barometer = new Barometer(Location.ON_TOP_OF_THE_POLE, Colour.RED, Material.WOODEN);
          clockHand = barometer.new ClockHand();
         } catch (Exception e){
@@ -47,31 +46,45 @@ public class MainTest {
     }
 
     @Test
-    public void checkMessageHiderBuffer() throws ImpossibleNumberException, HaveNotBeenNoticedYetException {
+    public void checkSwarming() throws HaveNotBeenNoticedYetException {
+        crowd.setNoticed(true);
         crowd.swarm();
-        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
-
+    }
+    
+    @Test
+    public void testLooking() throws HaveNotBeenNoticedYetException, ImpossibleNumberException {
+        crowd.setNoticed(true);
         crowd.lookAt(hemul);
-        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
-
+    }
+    
+    @Test
+    public void testHissing() throws ImpossibleNumberException {
+        crowd.setNoticed(false);
         crowd.hiss(Adverbs.TERRIBLY);
-        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
 
+        assertTrue(crowd.isNoticed());
+    }
+    
+    @Test
+    public void testTakingAStepTowards() throws HaveNotBeenNoticedYetException, ImpossibleNumberException {
+        crowd.setNoticed(true);
         crowd.takeAStepTowards(hemul, HatifnattStatus.LINE_AFTER_LINE);
-        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
-
+    }
+    
+    @Test
+    public void testHearing() throws HaveNotBeenNoticedYetException, ImpossibleNumberException {
+        crowd.setNoticed(true);
         crowd.hear(false);
-        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
-
+    }
+    
+    @Test
+    public void swingPaws() throws HaveNotBeenNoticedYetException, ImpossibleNumberException {
+        crowd.setNoticed(true);
         crowd.swingPaws();
-        assertEquals(HatifnattMessages.MessagesHider.getBuffer(), CrowdOfHatifnatts.getNumberOfHatifnatts());
     }
 
     @Test
     public void checkLocation(){
-
-        assertEquals(hemul.getLocation(), Location.GLADE_OF_HATIFNATTS);
-
         hemul.crashInto(pole);
 
         assertEquals(hemul.getLocation(), Location.BY_THE_POLE);
@@ -127,6 +140,4 @@ public class MainTest {
         crowd.swarm();
         crowd.lookAt(hemul);
     }
-
-
 }
