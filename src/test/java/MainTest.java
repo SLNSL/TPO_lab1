@@ -99,7 +99,8 @@ public class MainTest {
     }
 
     @Test
-    public void testHatifnattsDescription() throws ImpossibleNumberException {
+    public void testFlashing() throws ImpossibleNumberException {
+        final var sizeBefore = CrowdOfHatifnatts.getNumberOfHatifnatts();
         crowd.flash(Location.BETWEEN_THE_TREES, 0);
 
         for (Hatifnatt hatifnatt : crowd.crowd){
@@ -107,6 +108,8 @@ public class MainTest {
             assertEquals(Location.BETWEEN_THE_TREES, hatifnatt.getLocation());
             assertEquals(MovableStatus.MOTIONLESS, hatifnatt.getFace().getFacesStatus());
         }
+        
+        assertEquals(sizeBefore + 13, CrowdOfHatifnatts.getNumberOfHatifnatts());
     }
 
     @Test
